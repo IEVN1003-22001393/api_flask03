@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block content %}
+{% import "_macros.html" as macro %}
+    
+    <h1>Cálculo figur</h1>
+    
+    <form class="form-control" action="/figuras" method="post">
+        
+        {{ macro.campoNuevo(form.figura) }} 
+        {{ macro.campoNuevo(form.val1, placeholder="0.0") }}
+        {{ macro.campoNuevo(form.val2, placeholder="0.0") }}
+
+        <button type="submit" class="btn btn-primary">Calcular</button>
+    </form>
+    
+    <hr>
+
+    {% if area > 0 %}
+        <h2>El área es: {{ "%.2f"|format(area) }}</h2>
+    {% endif %}
+
+{% endblock %}
